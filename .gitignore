@@ -1,0 +1,27 @@
+# Build folders
+/build/
+/cmake-build-debug/
+/CMakeFiles/
+/CMakeCache.txt
+
+# Binaries and object files
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+
+# IDE files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+
+# Logs and temp files
+*.log
+*.tmp
+
+0

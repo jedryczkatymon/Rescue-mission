@@ -1,0 +1,15 @@
+
+# Doxyfile generated automatically
+
+PROJECT_NAME           = "Rescue Mission Simulation"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = "/Users/maciej/Downloads/Rescue-mission-simulation-main 2/include"
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h
+
+GENERATE_LATEX         = NO
+GENERATE_HTML          = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+HAVE_DOT               = NO

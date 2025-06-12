@@ -52,5 +52,3 @@ The commando enters the building and begins the mission. Along the way he encoun
 
 ---
 
-
-Translated with DeepL.com (free version)

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Rescue-mission-simulation-projetk
-=======
 # Simulation of special operation - rescue mission
 
 ## Project description
@@ -57,4 +54,3 @@ The commando enters the building and begins the mission. Along the way he encoun
 
 
 Translated with DeepL.com (free version)
->>>>>>> e7227c5 (Initial commit)

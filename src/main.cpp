@@ -5,7 +5,7 @@
 
 int main() {
     std::cout << "MISJA W TOKU...\n\n";
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // efekt lekkiego opóźnienia
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     Mission mission;
 
@@ -16,7 +16,7 @@ int main() {
         return 1;
     }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(500)); // chwila ciszy przed podsumowaniem
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     std::cout << "\n=== PODSUMOWANIE MISJI ===\n\n";
 
     mission.logResults();

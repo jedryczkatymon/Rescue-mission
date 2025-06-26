@@ -28,6 +28,6 @@ TEST(HostageTest, MultipleRescueCalls)
 {
     Hostage h;
     h.rescue();
-    h.rescue(); // Call rescue again
+    h.rescue();
     EXPECT_TRUE(h.isRescued());
 }

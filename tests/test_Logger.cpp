@@ -69,7 +69,6 @@ TEST_F(LoggerTest, WriteCSV_FileAppendMode_AppendsData)
 TEST_F(LoggerTest, WriteCSV_InvalidFile_ReturnsFalse)
 {
     Logger logger;
-    // Try to write to a directory (should fail)
     bool result = logger.writeCSV("/", "data");
     ASSERT_FALSE(result);
 }

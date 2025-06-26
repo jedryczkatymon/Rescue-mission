@@ -14,10 +14,8 @@ void SmokeGrenade::applyEffect(Mission &mission)
 
 void Mission::applySmokeEffect()
 {
-    smokeEffect = 2; // efekt trwa 2 spotkania
+    smokeEffect = 2;
 }
-
-// Mock classes for testing
 class MockMission : public Mission
 {
 public:
@@ -50,14 +48,11 @@ TEST(SmokeGrenadeTest, ApplyEffectLogsMessageAndAppliesSmoke)
     grenade.applyEffect(mission);
     auto end = std::chrono::steady_clock::now();
 
-    // Check log
     ASSERT_FALSE(mission.logs.empty());
     EXPECT_EQ(mission.logs.back(), "Granat dymny oslepia straznikow w poblizu.");
 
-    // Check smoke effect applied
     EXPECT_TRUE(mission.smokeEffectApplied);
 
-    // Check sleep duration (should be at least 1200ms)
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
     EXPECT_GE(duration, 1200);
 }

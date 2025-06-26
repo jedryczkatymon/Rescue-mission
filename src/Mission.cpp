@@ -12,23 +12,19 @@
 #include "Flashbang.h"
 #include "Silencer.h"
 
-// Konstruktor misji – inicjalizacja strażników, zakładników i ekwipunku
 Mission::Mission() : rng(std::random_device{}())
-{ // inicjalizacja rng
+{
 
     std::uniform_real_distribution<float> detectionDist(0.10f, 0.19f);
 
-    // Tworzenie 6 strażników z losową szansą wykrycia komandosa
     for (int i = 0; i < 6; ++i)
     {
         guards.emplace_back(detectionDist(rng));
     }
 
-    // Dodanie dwóch zakładników
     hostages.emplace_back();
     hostages.emplace_back();
 
-    // Dodanie przedmiotów do ekwipunku komandosa
     commando.addItem(std::make_unique<SmokeGrenade>());
     commando.addItem(std::make_unique<Flashbang>());
     commando.addItem(std::make_unique<Silencer>());
@@ -76,11 +72,11 @@ void Mission::simulate()
 
 void Mission::applyFlashbangEffect()
 {
-    flashbangEffect = 2; // efekt trwa 2 spotkania
+    flashbangEffect = 2;
 }
 void Mission::applySmokeEffect()
 {
-    smokeEffect = 2; // efekt trwa 2 spotkania
+    smokeEffect = 2;
 }
 int Mission::getFlashbangEffect() const
 {
@@ -110,10 +106,9 @@ void Mission::simulateGuardEncounters(bool &missionFailed)
             continue;
         float detectionModifier = 1.0f;
         if (flashbangEffect > 0)
-            detectionModifier *= 0.5f; // zmniejsz o 50%
+            detectionModifier *= 0.5f;
         if (smokeEffect > 0)
-            detectionModifier *= 0.7f; // zmniejsz o 30%
-
+            detectionModifier *= 0.7f;
         if (guards[idx].detectCommando(detectionModifier))
         {
             logEntries.push_back("[Strażnik nr " + std::to_string(idx + 1) + "] wykrył komandosa! Alarm! Misja zakończona.");
@@ -145,17 +140,16 @@ void Mission::simulateGuardEncounters(bool &missionFailed)
             logEntries.push_back("Komandos znów się skrada.");
         }
 
-        // Próba użycia przedmiotu
         for (auto &itemPtr : commando.getItems())
         {
             if (!itemPtr->isUsed() && useItemDist(rng) != 0)
-            { // 50% szansy
+            {
                 itemPtr->use();
                 logEntries.push_back("Komandos używa narzędzia: " + itemPtr->getName());
 
                 itemPtr->applyEffect(*this);
 
-                break; // używamy tylko jeden przedmiot naraz
+                break;
             }
         }
     }

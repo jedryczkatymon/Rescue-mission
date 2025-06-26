@@ -12,7 +12,7 @@ void Flashbang::applyEffect(Mission &mission)
 
 void Mission::applyFlashbangEffect()
 {
-    flashbangEffect = 2; // efekt trwa 2 spotkania
+    flashbangEffect = 2;
 }
 
 class MockMission : public Mission

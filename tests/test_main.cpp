@@ -4,7 +4,6 @@
 #include <sstream>
 #include <iostream>
 
-// Helper class to mock Mission for testing main logic
 class MockMission : public Mission
 {
 public:
@@ -27,11 +26,9 @@ public:
     }
 };
 
-// Helper function to simulate main logic
 int test_main_like(MockMission &mission, std::ostream &out, std::ostream &err)
 {
     out << "MISJA W TOKU...\n\n";
-    // Skipping sleep for test speed
 
     try
     {
@@ -43,7 +40,6 @@ int test_main_like(MockMission &mission, std::ostream &out, std::ostream &err)
         return 1;
     }
 
-    // Skipping sleep for test speed
     out << "\n=== PODSUMOWANIE MISJI ===\n\n";
     mission.logResults();
     return 0;
